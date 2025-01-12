@@ -24,4 +24,6 @@ require("lazy").setup({
   require("plugins.none-ls"),
   require("plugins.gitsigns"),
   require("plugins.indent-blankline"),
+  require("plugins.greeter"),
+  require("plugins.misc"),
 })
