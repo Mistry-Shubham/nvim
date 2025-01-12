@@ -14,5 +14,6 @@ return {
       require("colorizer").setup()
     end,
   },
+  -- Vim commentary
   { "tpope/vim-commentary" },
 }

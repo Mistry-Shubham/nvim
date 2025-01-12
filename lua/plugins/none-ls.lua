@@ -23,9 +23,9 @@ return {
     })
 
     local sources = {
-      formatting.prettier.with({ filetypes = { "javascript", "typescript", "tsx", "json", "yaml", "html", "markdown", "css" } }),
---      diagnostics.eslint_d,
-      --formatting.prettier.with({ filetypes = { "html", "json", "yaml", "markdown" } }),
+      formatting.prettier.with({
+        filetypes = { "javascript", "typescript", "jsx", "tsx", "json", "yaml", "html", "markdown", "css", "javascriptreact", "typescriptreact" },
+      }),
       formatting.stylua,
       formatting.shfmt.with({ args = { "-i", "4" } }),
     }
