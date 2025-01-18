@@ -28,6 +28,7 @@ return {
       }),
       formatting.stylua,
       formatting.shfmt.with({ args = { "-i", "4" } }),
+      require("none-ls.diagnostics.eslint_d"),
     }
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

@@ -20,7 +20,15 @@ return {
         max_name_length = 30,
         max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
         tab_size = 21,
-        diagnostics = false,
+        diagnostics_indicator = function(_, _, diagnostics_dict, _)
+          local s = " "
+          for e, n in pairs(diagnostics_dict) do
+            local sym = e == "error" and " " or (e == "warning" and " " or " ")
+            s = s .. n .. sym
+          end
+          return s
+        end,
+        diagnostics = "nvim_lsp",
         diagnostics_update_in_insert = false,
         color_icons = true,
         show_buffer_icons = true,
