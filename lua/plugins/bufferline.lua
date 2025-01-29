@@ -56,6 +56,7 @@ return {
         buffer_selected = {
           bold = true,
           italic = false,
+          underline = true,
         },
         -- separator_selected = {},
         -- tab_selected = {},

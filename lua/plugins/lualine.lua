@@ -9,15 +9,24 @@ return {
       end,
     }
 
-    local filename = {
-      "filename",
-      file_status = true, -- displays file status (readonly status, modified status)
-      path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
-    }
+    local function get_path_based_on_window_size()
+      local width = vim.fn.winwidth(0) -- Get the current window width
+      if width < 101 then
+        return 0 -- Just show the filename if the window width is less than 80
+      else
+        return 1 -- Show absolute path if the window width is greater than 120
+      end
+    end
 
     local hide_in_width = function()
       return vim.fn.winwidth(0) > 100
     end
+
+    local filename = {
+      "filename",
+      file_status = true, -- displays file status (readonly status, modified status)
+      path = get_path_based_on_window_size(), -- 0 = just filename, 1 = relative path, 2 = absolute path
+    }
 
     local diagnostics = {
       "diagnostics",
@@ -32,7 +41,7 @@ return {
 
     local diff = {
       "diff",
-      colored = false,
+      colored = true,
       symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
       cond = hide_in_width,
     }
