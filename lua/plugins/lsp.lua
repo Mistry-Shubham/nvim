@@ -159,6 +159,7 @@ return {
       angularls = {},
       jdtls = {},
       vimls = {},
+      emmet_ls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
