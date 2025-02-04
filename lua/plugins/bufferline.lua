@@ -57,6 +57,7 @@ return {
           bold = true,
           italic = false,
           underline = true,
+          fg = "#00BFFF",
         },
         -- separator_selected = {},
         -- tab_selected = {},
