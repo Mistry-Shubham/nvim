@@ -150,7 +150,6 @@ return {
       tailwindcss = {},
       dockerls = {},
       sqlls = {},
-      terraformls = {},
       jsonls = {},
       yamlls = {},
       bashls = {},

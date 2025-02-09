@@ -16,16 +16,4 @@ return {
   },
   -- Vim commentary
   { "tpope/vim-commentary" },
-  -- Codesanp
-  {
-    "mistricky/codesnap.nvim",
-    build = "make",
-    cmd = { "CodeSnap", "CodeSnapSave" },
-    opts = {
-      has_breadcrumbs = true,
-      bg_theme = "sea",
-      watermark = "",
-      bg_padding = 80,
-    },
-  },
 }
