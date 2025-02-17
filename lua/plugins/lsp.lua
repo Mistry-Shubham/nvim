@@ -147,7 +147,9 @@ return {
           },
         },
       },
-      tailwindcss = {},
+      tailwindcss = {
+        filetypes = { "javascript", "typescript", "jsx", "tsx", "html", "javascriptreact", "typescriptreact" },
+      },
       dockerls = {},
       sqlls = {},
       jsonls = {},
