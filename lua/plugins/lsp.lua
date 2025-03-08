@@ -138,6 +138,8 @@ return {
         settings = {
           javascript = { format = { enable = false } },
           typescript = { format = { enable = false } },
+          javascriptreact = { format = { enable = false } },
+          typescriptreact = { format = { enable = false } },
         },
       }, -- tsserver is deprecated
       html = { filetypes = { "html", "twig", "hbs" } },
