@@ -23,5 +23,7 @@ return {
     local keymap = vim.keymap
     keymap.set("n", "<Tab>", "<cmd>:bnext<CR>", { desc = "Switch next buffer" })
     keymap.set("n", "<S-Tab>", "<cmd>:bprevious<CR>", { desc = "Switch previous buffer" })
+    keymap.set("n", "<leader>bx", "<cmd>:bdelete!<CR>", { desc = "Close current active buffer" })
+    keymap.set("n", "<leader>ba", "<cmd>:BufferLineCloseOthers<CR><cmd>:bdelete!<CR>", { desc = "Close all the buffers" })
   end,
 }

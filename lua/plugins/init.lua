@@ -4,4 +4,11 @@ return {
     "stevearc/dressing.nvim",
     event = "VeryLazy",
   },
+  {
+    "norcalli/nvim-colorizer.lua",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
 }
