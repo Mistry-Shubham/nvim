@@ -42,3 +42,10 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- Set fold method to tree-sitter for automatic folding
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+opt.foldlevelstart = 99 -- all folds open by default
+opt.foldcolumn = "0"

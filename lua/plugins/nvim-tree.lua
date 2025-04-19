@@ -11,21 +11,12 @@ return {
     nvimtree.setup({
       view = {
         width = 35,
-        relativenumber = true,
         side = "right",
       },
       -- change folder arrow icons
       renderer = {
         indent_markers = {
           enable = false,
-        },
-        icons = {
-          glyphs = {
-            folder = {
-              arrow_closed = "", -- arrow when folder is closed
-              arrow_open = "", -- arrow when folder is open
-            },
-          },
         },
       },
       -- disable window_picker for
