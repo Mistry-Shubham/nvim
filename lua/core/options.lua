@@ -43,6 +43,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+opt.showmode = false -- mode indicator disabled as mode is shown in lualine
+
 -- Set fold method to tree-sitter for automatic folding
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
