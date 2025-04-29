@@ -11,4 +11,8 @@ return {
       require("colorizer").setup()
     end,
   },
+  {
+    "karb94/neoscroll.nvim",
+    opts = {},
+  },
 }
