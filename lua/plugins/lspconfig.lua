@@ -59,14 +59,13 @@ return {
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
       end,
     })
-
     -- Change the Diagnostic symbols in the sign column (gutter)
     vim.diagnostic.config({
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = " ",
-          [vim.diagnostic.severity.WARN] = " ",
-          [vim.diagnostic.severity.HINT] = "󰌶",
+          [vim.diagnostic.severity.WARN] = " ",
+          [vim.diagnostic.severity.HINT] = " ",
           [vim.diagnostic.severity.INFO] = " ",
         },
       },
