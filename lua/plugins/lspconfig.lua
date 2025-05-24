@@ -14,6 +14,14 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+        -- Enable inlay hints if supported
+        local inlay_hint = vim.lsp.inlay_hint
+        if client and client.server_capabilities.inlayHintProvider and inlay_hint then
+          inlay_hint.enable(true)
+        end
+
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
@@ -78,12 +86,37 @@ return {
       capabilities = capabilities,
     })
 
+    local ts_inlay = {
+      includeInlayParameterNameHints = "literals",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+    }
+
     vim.lsp.config("ts_ls", {
       settings = {
         javascript = { format = { enable = false } },
-        typescript = { format = { enable = false } },
+        typescript = {
+          inlayHints = ts_inlay,
+          format = { enable = false },
+        },
         javascriptreact = { format = { enable = false } },
-        typescriptreact = { format = { enable = false } },
+        typescriptreact = {
+          inlayHints = ts_inlay,
+          format = { enable = false },
+        },
+      },
+    })
+
+    vim.lsp.config("rust-analyzer", {
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = { allFeatures = true },
+          procMacro = { enable = true },
+        },
       },
     })
 
