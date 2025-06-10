@@ -4,6 +4,7 @@ return {
   version = "*",
   config = function()
     local bufferline = require("bufferline")
+    local icons = require("core.icons")
 
     bufferline.setup({
       options = {
@@ -11,7 +12,7 @@ return {
         separator_style = "thin",
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level)
-          local icon = level:match("error") and " " or " "
+          local icon = level:match("error") and icons.error or icons.warn
           return " " .. icon .. count
         end,
       },

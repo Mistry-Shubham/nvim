@@ -9,6 +9,7 @@ return {
   config = function()
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local icons = require("core.icons")
     local keymap = vim.keymap -- for conciseness
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -71,10 +72,10 @@ return {
     vim.diagnostic.config({
       signs = {
         text = {
-          [vim.diagnostic.severity.ERROR] = " ",
-          [vim.diagnostic.severity.WARN] = " ",
-          [vim.diagnostic.severity.HINT] = " ",
-          [vim.diagnostic.severity.INFO] = " ",
+          [vim.diagnostic.severity.ERROR] = icons.error,
+          [vim.diagnostic.severity.WARN] = icons.warn,
+          [vim.diagnostic.severity.HINT] = icons.hint,
+          [vim.diagnostic.severity.INFO] = icons.info,
         },
       },
     })

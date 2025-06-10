@@ -3,6 +3,7 @@ return {
   dependencies = "nvim-tree/nvim-web-devicons",
   config = function()
     local nvimtree = require("nvim-tree")
+    local icons = require("core.icons")
 
     -- recommended settings from nvim-tree documentation
     vim.g.loaded_netrw = 1
@@ -25,10 +26,10 @@ return {
         show_on_open_dirs = true,
         debounce_delay = 50,
         icons = {
-          hint = "",
-          info = "",
-          warning = "",
-          error = "",
+          hint = icons.hint,
+          info = icons.info,
+          warning = icons.warn,
+          error = icons.error,
         },
       },
       -- disable window_picker for
