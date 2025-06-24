@@ -19,6 +19,7 @@ return {
         indent_markers = {
           enable = false,
         },
+        root_folder_label = false,
       },
       diagnostics = {
         enable = true,

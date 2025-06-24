@@ -30,11 +30,7 @@ keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to up split" })
 keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to left split" })
 keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to right split" })
 
-keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+keymap.set("n", "<leader>t", "<cmd>term<CR>i", { desc = "Open terminal" })
 
 keymap.set("n", "<leader>yd", functions.copy_diagnostic_under_cursor, { desc = "Copy diagnostic under cursor" })
 
