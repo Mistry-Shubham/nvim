@@ -47,6 +47,7 @@ return {
         "emmet_ls",
         "lua_ls",
         "eslint",
+        "prismals",
       },
     })
 
