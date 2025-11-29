@@ -137,6 +137,13 @@ return {
       },
     })
 
+    vim.lsp.config("angularls", {
+      filetypes = { "typescript", "html" },
+      root_dir = function(fname)
+        return vim.fs.root(fname, { "angular.json", "project.json", "tsconfig.app.json" })
+      end,
+    })
+
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
