@@ -48,6 +48,7 @@ return {
         "lua_ls",
         "eslint",
         "prismals",
+        "biome",
       },
     })
 
