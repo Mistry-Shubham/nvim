@@ -49,6 +49,7 @@ return {
         "eslint",
         "prismals",
         "biome",
+        "gh_actions_ls",
       },
     })
 
