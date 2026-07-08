@@ -8,6 +8,7 @@ return {
       "javascript",
       "typescript",
       "tsx",
+      "jsdoc",
       "vimdoc",
       "vim",
       "regex",

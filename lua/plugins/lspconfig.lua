@@ -87,32 +87,29 @@ return {
       capabilities = capabilities,
     })
 
-    local ts_inlay = {
-      includeInlayParameterNameHints = "literals",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayEnumMemberValueHints = true,
+    local vtsls_inlay = {
+      parameterNames = { enabled = "literals" },
+      parameterTypes = { enabled = true },
+      variableTypes = { enabled = true },
+      propertyDeclarationTypes = { enabled = true },
+      functionLikeReturnTypes = { enabled = true },
+      enumMemberValues = { enabled = true },
     }
 
-    vim.lsp.config("ts_ls", {
+    vim.lsp.config("vtsls", {
       settings = {
-        javascript = { format = { enable = false } },
-        typescript = {
-          inlayHints = ts_inlay,
+        javascript = {
+          inlayHints = vtsls_inlay,
           format = { enable = false },
         },
-        javascriptreact = { format = { enable = false } },
-        typescriptreact = {
-          inlayHints = ts_inlay,
+        typescript = {
+          inlayHints = vtsls_inlay,
           format = { enable = false },
         },
       },
     })
 
-    vim.lsp.config("rust-analyzer", {
+    vim.lsp.config("rust_analyzer", {
       settings = {
         ["rust-analyzer"] = {
           cargo = { allFeatures = true },

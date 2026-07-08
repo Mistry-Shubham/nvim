@@ -17,9 +17,12 @@ return {
         json = { "biome", "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
+        toml = { "taplo" },
         lua = { "stylua" },
         python = { "isort", "black" },
         rust = { "rustfmt" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
       },
       format_on_save = {
         lsp_fallback = lsp_fallback,
