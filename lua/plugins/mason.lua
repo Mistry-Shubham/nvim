@@ -28,7 +28,7 @@ return {
       automatic_installation = true,
       -- list of servers for mason to install
       ensure_installed = {
-        "vtsls",
+        "ts_ls",
         "html",
         "cssls",
         "clangd",
@@ -63,6 +63,7 @@ return {
         "eslint_d", -- js linter
         "clang-format",
         "cpplint",
+        "actionlint",
       },
     })
   end,

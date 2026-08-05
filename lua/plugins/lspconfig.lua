@@ -87,27 +87,52 @@ return {
       capabilities = capabilities,
     })
 
-    local vtsls_inlay = {
-      parameterNames = { enabled = "literals" },
-      parameterTypes = { enabled = true },
-      variableTypes = { enabled = true },
-      propertyDeclarationTypes = { enabled = true },
-      functionLikeReturnTypes = { enabled = true },
-      enumMemberValues = { enabled = true },
+    local ts_inlay = {
+      includeInlayParameterNameHints = "literals",
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = true,
+      includeInlayVariableTypeHints = true,
+      includeInlayPropertyDeclarationTypeHints = true,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
     }
 
-    vim.lsp.config("vtsls", {
+    vim.lsp.config("ts_ls", {
       settings = {
-        javascript = {
-          inlayHints = vtsls_inlay,
+        javascript = { format = { enable = false } },
+        typescript = {
+          inlayHints = ts_inlay,
           format = { enable = false },
         },
-        typescript = {
-          inlayHints = vtsls_inlay,
+        javascriptreact = { format = { enable = false } },
+        typescriptreact = {
+          inlayHints = ts_inlay,
           format = { enable = false },
         },
       },
     })
+
+    -- local vtsls_inlay = {
+    --   parameterNames = { enabled = "literals" },
+    --   parameterTypes = { enabled = true },
+    --   variableTypes = { enabled = true },
+    --   propertyDeclarationTypes = { enabled = true },
+    --   functionLikeReturnTypes = { enabled = true },
+    --   enumMemberValues = { enabled = true },
+    -- }
+    --
+    -- vim.lsp.config("vtsls", {
+    --   settings = {
+    --     javascript = {
+    --       inlayHints = vtsls_inlay,
+    --       format = { enable = false },
+    --     },
+    --     typescript = {
+    --       inlayHints = vtsls_inlay,
+    --       format = { enable = false },
+    --     },
+    --   },
+    -- })
 
     vim.lsp.config("rust_analyzer", {
       settings = {

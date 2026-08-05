@@ -52,3 +52,6 @@ opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 opt.foldlevelstart = 99 -- all folds open by default
 opt.foldcolumn = "0"
+
+-- fix for diffget and diffput not working for fugitive
+opt.diffopt:remove("linematch:40")
