@@ -48,7 +48,7 @@ opt.showmode = false -- mode indicator disabled as mode is shown in lualine
 
 -- Set fold method to tree-sitter for automatic folding
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 opt.foldlevelstart = 99 -- all folds open by default
 opt.foldcolumn = "0"

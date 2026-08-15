@@ -64,6 +64,8 @@ return {
         "clang-format",
         "cpplint",
         "actionlint",
+        "oxlint",
+        "oxfmt",
       },
     })
   end,

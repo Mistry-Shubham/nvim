@@ -3,18 +3,36 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
+    local lintfmt = require("core.lintfmt")
     local timeout_ms = 5000
     local lsp_fallback = "never"
 
+    -- Priority: biome -> oxfmt -> prettier. Skip when no config file exists.
+    local function resolve(bufnr, with_imports)
+      if lintfmt.is_configured(bufnr, lintfmt.config_files.biome) then
+        if with_imports then
+          return { "biome", "biome-organize-imports" }
+        end
+        return { "biome" }
+      end
+      if lintfmt.is_configured(bufnr, lintfmt.config_files.oxfmt) then
+        return { "oxfmt" }
+      end
+      if lintfmt.is_configured(bufnr, lintfmt.config_files.prettier) then
+        return { "prettier" }
+      end
+      return {}
+    end
+
     conform.setup({
       formatters_by_ft = {
-        javascript = { "biome", "biome-organize-imports", "prettier" },
-        typescript = { "biome", "biome-organize-imports", "prettier" },
-        javascriptreact = { "biome", "biome-organize-imports", "prettier" },
-        typescriptreact = { "biome", "biome-organize-imports", "prettier" },
-        css = { "biome", "prettier" },
-        html = { "biome", "prettier" },
-        json = { "biome", "prettier" },
+        javascript = function(bufnr) return resolve(bufnr, true) end,
+        typescript = function(bufnr) return resolve(bufnr, true) end,
+        javascriptreact = function(bufnr) return resolve(bufnr, true) end,
+        typescriptreact = function(bufnr) return resolve(bufnr, true) end,
+        css = function(bufnr) return resolve(bufnr, false) end,
+        html = function(bufnr) return resolve(bufnr, false) end,
+        json = function(bufnr) return resolve(bufnr, false) end,
         yaml = { "prettier" },
         markdown = { "prettier" },
         toml = { "taplo" },
